@@ -1,24 +1,33 @@
 import React, {useState} from 'react';
 import firebase  from '../config/firebase'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import 'firebase/auth';
 import './login.css'
+
+import {useSelector, useDispatch} from 'react-redux';
 
 
 function Login(){
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
+    const [msgTipo, setMsgTipo] = useState();
+
+    const dispatch = useDispatch();
 
     function logar(){
         firebase.auth().signInWithEmailAndPassword(email, senha).then(retorno =>{
-
+                setMsgTipo('sucesso');
+                dispatch({type: 'LOG_IN', usuarioEmail: email});
             }).catch(erro =>{
-                
+                setMsgTipo('erro');
             });
     }
 
     return(
         <div className="login-content d-flex align-items-center">
+
+            {useSelector(state => state.usuarioLogado) > 0 ? <Redirect to='/' /> : null}
+
             <form className="form-signin mx-auto">
                 <div className="text-center mb-4">
                     <img className="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
@@ -31,7 +40,8 @@ function Login(){
                 <button className="btn btn-lg btn-login btn-block" type="button" onClick={logar}>Logar</button>
                 
                 <div className="msg-login text-white text-center my-4">
-                    <span><strong> conectado</strong></span>
+                    {msgTipo === 'sucesso' && <span><strong>conectado</strong></span>}
+                    {msgTipo === 'erro' && <span><strong>verifique se a senha ou usuário estão corretos</strong></span>}
                 </div>
                 
                 <div className="opcoes-login mt-5">
