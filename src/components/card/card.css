@@ -1,0 +1,9 @@
+.rodape-card{
+    color: black;
+    height: 35px;
+}
+
+.card-text{
+    max-height: 200px;
+    overflow: hidden;
+}

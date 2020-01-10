@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 
 import Login from './view/login/login';
 import NovoUsuario from './view/usuario-novo/usuario-novo';
+import EventoCadastro from './view/cadastro/cadastro';
 import Home from './view/home/home';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
         <Router>
           <Route exact path='/' component={Home} />
           <Route exact path='/novousuario' component={NovoUsuario} />
+          <Route exact path='/cadastro' component={EventoCadastro} />
           <Route exact path='/login' component={Login} />
         </Router>
       </Provider>
