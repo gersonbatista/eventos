@@ -13,9 +13,10 @@ function NavBar(){
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item"><Link className="nav-link" to='/'>Home</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to='novousuario'>Cadastrar usuário</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to='cadastro'>Publicar evento</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to='Login'>Login</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to='/novousuario'>Cadastrar usuário</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to='/cadastro'>Publicar evento</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to='/eventos/meus'>Meus Eventos</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to='/Login'>Login</Link></li>
                 </ul> 
             </div>
         </nav>

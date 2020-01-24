@@ -7,6 +7,7 @@ import Login from './view/login/login';
 import NovoUsuario from './view/usuario-novo/usuario-novo';
 import EventoCadastro from './view/cadastro/cadastro';
 import Home from './view/home/home';
+import EventoDetalhes from './view/detalhes/detalhes';
 
 class App extends Component {
   render() {
@@ -14,9 +15,11 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Route exact path='/' component={Home} />
+          <Route path='/eventos/:parametro' component={Home} />
           <Route exact path='/novousuario' component={NovoUsuario} />
           <Route exact path='/cadastro' component={EventoCadastro} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/detalhes' component={EventoDetalhes} />
         </Router>
       </Provider>
     );
